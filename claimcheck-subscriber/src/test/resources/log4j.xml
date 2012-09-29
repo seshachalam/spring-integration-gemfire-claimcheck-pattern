@@ -16,11 +16,6 @@
 		<level value="debug" />
 	</logger>
 
-	<logger name="com.it.eis">
-		<level value="debug" />
-	</logger>
-
-
 	<!-- Root Logger -->
 	<root>
 		<priority value="DEBUG" />

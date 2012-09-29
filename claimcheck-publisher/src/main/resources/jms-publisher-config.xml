@@ -35,7 +35,7 @@
 	<int:bridge input-channel="cic.common.claimcheck.in.outputChannel" output-channel="jms-channel.out" />
 	
 	<int-jms:outbound-channel-adapter
-		id="c.sap.invoice.jmsoutboundchanneladapter" channel="jms-channel.out"
+		id="jmsoutboundchanneladapter" channel="jms-channel.out"
 		connection-factory="connectionFactory" destination-name="MyTopic"
 		pub-sub-domain="true" />
 
