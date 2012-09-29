@@ -21,12 +21,6 @@ import javax.persistence.MappedSuperclass;
 
 import org.springframework.data.annotation.Id;
 
-/**
- * Base class for persistent classes.
- * 
- * @author Oliver Gierke
- * @author David Turanski
- */
 @SuppressWarnings("serial")
 @MappedSuperclass
 public class AbstractPersistentEntity implements Serializable {
@@ -37,23 +31,23 @@ public class AbstractPersistentEntity implements Serializable {
 
 	/**
 	 * Returns the identifier of the entity.
-	 * 
+	 *
 	 * @return the id
 	 */
 	public Long getId() {
 		return id;
 	}
-	
+
 	protected AbstractPersistentEntity(Long id) {
 		this.id = id;
 	}
-	
+
 	protected AbstractPersistentEntity() {
 		this.id = null;
 	}
-	
 
-	/* 
+
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -73,7 +67,7 @@ public class AbstractPersistentEntity implements Serializable {
 		return this.id.equals(that.getId());
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */

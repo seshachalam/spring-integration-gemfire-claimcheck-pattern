@@ -14,11 +14,6 @@
 */
 package org.springframework.data.gemfire.examples.util;
 
-/**
-* @author Wayne Lund
-* @author David Turanski
-*
-*/
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -44,7 +39,7 @@ public class ServerPortGenerator {
         } else {
             throw new IOException("Unable to bind on to a port between "+min+" and "+max);
         }
-        
+
     }
 
     public int bind(ServerSocket socket, int portstart, int retries) throws IOException {

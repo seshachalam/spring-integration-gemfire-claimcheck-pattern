@@ -8,11 +8,6 @@ import org.springframework.integration.MessagingException;
 
 import com.gemstone.gemfire.cache.Region;
 
-/**
- * 
- * @author David Turanski
- *
- */
 public class ClaimCheckErrorHandler {
 	private static Logger logger = Logger.getLogger(ClaimCheckErrorHandler.class);
 	private final Region<UUID,Object> region;

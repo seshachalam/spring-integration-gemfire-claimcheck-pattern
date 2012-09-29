@@ -23,16 +23,11 @@ import com.gemstone.gemfire.cache.EntryEvent;
 import com.gemstone.gemfire.cache.util.CacheListenerAdapter;
 
 @SuppressWarnings("rawtypes")
-/**
- * A simple CacheListener to log cache events
- * @author David Turanski
- *
- */
 @Component
 public class LoggingCacheListener extends CacheListenerAdapter {
 	private static Log log = LogFactory.getLog(LoggingCacheListener.class);
 
-	 
+
 	@Override
 	  public void afterCreate(EntryEvent event) {
 	    final String regionName = event.getRegion().getName();

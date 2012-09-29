@@ -27,13 +27,9 @@ import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
 
-/**
- * @author Gary Russell
- *
- */
 @ManagedResource(objectName="spring.application:type=LoggerManager,name=LoggerManager")
 public class LoggerManager {
-	
+
 	private final Logger logger = Logger.getLogger(this.getClass());
 
 	private void doSetLevel(String loggerName, String level) {
@@ -62,7 +58,7 @@ public class LoggerManager {
 					+ oldLevel.toString() + " to " + level);
 		}
 	}
-	
+
 	@ManagedOperation(description="Sets Log4j Logger Level for all loggers starting with the supplied value. " +
 			"Use, with caution, to reset a complete hierarchy where lower level logger levels have been altered.")
 	public void setAndCascadeLevel(String loggerPrefix, String level) {
@@ -71,7 +67,7 @@ public class LoggerManager {
 		for (String logger : loggers) {
 			if (logger.startsWith(loggerPrefix)) {
 				doSetLevel(logger, level);
-				
+
 				found = true;
 			}
 		}
@@ -79,7 +75,7 @@ public class LoggerManager {
 			throw new RuntimeException("No loggers found with prefix: " + loggerPrefix);
 		}
 	}
-	
+
 	@ManagedOperation(description="Sets Log4j Logger Level")
 	public void setLevel(String loggerName, String level) {
 		if (LogManager.exists(loggerName) == null) {
@@ -87,7 +83,7 @@ public class LoggerManager {
 		}
 		doSetLevel(loggerName, level);
 	}
-	
+
 	@ManagedOperation(description="Gets the current Log4j Logger Level for the specified logger")
 	public String getLevel(String loggerName) {
 		if (LogManager.exists(loggerName) == null) {
@@ -100,7 +96,7 @@ public class LoggerManager {
 		}
 		return level.toString();
 	}
-	
+
 	@ManagedAttribute
 	public List<String> getLoggers() {
 		@SuppressWarnings("rawtypes")

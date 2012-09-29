@@ -24,11 +24,6 @@ import org.springframework.data.gemfire.mapping.Region;
 
 import org.springframework.util.Assert;
 
-/**
- * @author Oliver Gierke
- * @author David Turanski
- */
- 
 @Region
 public class Order extends AbstractPersistentEntity {
 
@@ -41,7 +36,7 @@ public class Order extends AbstractPersistentEntity {
 
 	/**
 	 * Creates a new {@link Order} for the given {@link Customer}.
-	 * 
+	 *
 	 * @param customer must not be {@literal null}.
 	 */
 	public Order(Long id, Long customerId, Address billingAddress) {
@@ -56,7 +51,7 @@ public class Order extends AbstractPersistentEntity {
 
 	/**
 	 * Adds the given {@link LineItem} to the {@link Order}.
-	 * 
+	 *
 	 * @param lineItem
 	 */
 	public void add(LineItem lineItem) {
@@ -65,7 +60,7 @@ public class Order extends AbstractPersistentEntity {
 
 	/**
 	 * Returns the id of the {@link Customer} who placed the {@link Order}.
-	 * 
+	 *
 	 * @return
 	 */
 	public Long getCustomerId() {
@@ -74,7 +69,7 @@ public class Order extends AbstractPersistentEntity {
 
 	/**
 	 * Returns the billing {@link Address} for this order.
-	 * 
+	 *
 	 * @return
 	 */
 	public Address getBillingAddress() {
@@ -83,7 +78,7 @@ public class Order extends AbstractPersistentEntity {
 
 	/**
 	 * Returns the shipping {@link Address} for this order;
-	 * 
+	 *
 	 * @return
 	 */
 	public Address getShippingAddress() {
@@ -92,7 +87,7 @@ public class Order extends AbstractPersistentEntity {
 
 	/**
 	 * Returns all {@link LineItem}s currently belonging to the {@link Order}.
-	 * 
+	 *
 	 * @return
 	 */
 	public Set<LineItem> getLineItems() {
@@ -101,7 +96,7 @@ public class Order extends AbstractPersistentEntity {
 
 	/**
 	 * Returns the total of the {@link Order}.
-	 * 
+	 *
 	 * @return
 	 */
 	public BigDecimal getTotal() {
