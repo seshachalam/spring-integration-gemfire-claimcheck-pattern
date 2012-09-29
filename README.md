@@ -8,12 +8,12 @@ In this project, I will demo the use of [Claimcheck-Enterprise Integration Patte
 * Create a Topic called "MyTopic"
 * Get the source code
 * Start the Gemfire replicated-region based server as follows
-** cd gemfire-server
-** mvn package
-** mvn exec:java -Dexec.mainClass="org.springframework.data.gemfire.examples.Server"
+* cd gemfire-server
+* mvn package
+* mvn exec:java -Dexec.mainClass="org.springframework.data.gemfire.examples.Server"
 * Maven import claimcheck-subscriber project into STS IDE and "Run on Server" this project
 * run the below command and notice the queue called consumed and message got printed on the STS IDE console
-** cd claimcheck-publisher
-** mvn test
+* cd claimcheck-publisher
+* mvn test
 
 Feel free to modify this code and use it for your need. Refer this [blog](http://krishnasblog.com/) for more details.
