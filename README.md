@@ -16,4 +16,4 @@ In this project, I will demo the use of [Claimcheck-Enterprise Integration Patte
 * cd claimcheck-publisher
 * mvn test
 
-Feel free to modify this code and use it for your need. Refer this [blog](http://krishnasblog.com/2012/09/29/chaimcheck-pattern-using-spring-integration-and-gemfire/) for more details.
+Feel free to modify this code and use it for your need. Refer this [blog](http://krishnasblog.com/2012/09/29/claimcheck-pattern-using-spring-integration-and-gemfire/) for more details.
