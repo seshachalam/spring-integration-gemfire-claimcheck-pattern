@@ -29,7 +29,6 @@
 											'->update notification
 	 ]]></description>
 
-
 	<int:channel id="errorChannel" />
 	<int:channel id="integration.inbound" />
 	<int:channel id="integration.outbound" />
@@ -38,6 +37,9 @@
 	<int:bridge input-channel="jdbc.inbound"
 		output-channel="common.claimcheck.in.inputChannel" />
 
+	<!--  for Demo purpose, I have just bridged common.claimcheck.in.outputChannel to the jms-channel.out, 
+	but in reality there can be a spring integration flow which can do an entire workflow/transformation, before it puts 
+	the message into the Topic -->
 	<int:bridge input-channel="common.claimcheck.in.outputChannel"
 		output-channel="jms-channel.out" />
 
