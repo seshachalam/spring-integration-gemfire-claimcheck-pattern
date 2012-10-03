@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int-jms="http://www.springframework.org/schema/integration/jms"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="classpath:claimcheck-in-integration-config.xml" />
+ 	<import resource="classpath:publisher-integration-config.xml" />
+	<import resource="classpath:jms-publisher-config.xml" />
+	<import resource="classpath:gemfire-config.xml" />
+	<import resource="classpath:db-config.xml" />
+
+</beans>
