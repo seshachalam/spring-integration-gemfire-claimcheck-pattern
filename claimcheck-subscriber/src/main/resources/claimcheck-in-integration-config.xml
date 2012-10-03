@@ -40,7 +40,7 @@
 		input-channel="errorChannel"
 		 method="handleError">
 		<bean id="common.claimcheck.in.errorHandler"
-			class="com.goSmarter.gemfire.claimcheckpattern.ClaimCheckErrorHandler">
+			class="com.goSmarter.gemfire.claimcheckpattern.ErrorHandler">
 			<constructor-arg ref="Customer" />
 		</bean>
 	</int:service-activator>
