@@ -1,0 +1,4 @@
+urlid goSmarter
+url jdbc:hsqldb:hsql://localhost/goSmarter
+username SA
+password
