@@ -35,6 +35,6 @@ To quickly see how it works,
 * if you notice, end to end, the application-data-publisher picks up the message from the db table and pushes to Gemfire/Topic and the claimcheck-subscriber will pickup from the Gemfire/Topic and prints the message on the console
 
 
-Refer this [blog](http://krishnasblog.com/) for more details on the above flow.
+Refer this [blog](krishnasblog.com/2012/10/03/publisher-subscriber-using-vfabric-spring-integration-gemfire/) for more details on the above flow.
 
 Feel free to modify this code and use it for your need. 
