@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ws="http://www.springframework.org/schema/integration/ws"
+	xmlns:int-jms="http://www.springframework.org/schema/integration/jms"
+	xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:gfe="http://www.springframework.org/schema/gemfire"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd
+		http://www.springframework.org/schema/gemfire http://www.springframework.org/schema/gemfire/spring-gemfire-1.1.xsd
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd
+		http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd">
+
+	<gfe:cache/>
+	
+	<gfe:replicated-region id="Customer" />
+
+	<int:bridge input-channel="common.claimcheck.in.outputChannel"
+		output-channel="common.claimcheck.out.inputChannel" />
+
+	<int:bridge input-channel="common.claimcheck.out.outputChannel"
+		output-channel="jms.to.claimcheck" />
+
+</beans>

@@ -8,18 +8,11 @@
 		http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<int:channel id="jms.to.claimcheck" />
-
-	<int:bridge input-channel="jms.to.claimcheck" output-channel="common.claimcheck.out.inputChannel" />
-	
-	<!-- Again for demo purpose, on the subscriber side, I just directly took the common.claimcheck.out.outputChannel and 
-	passed to a console based service activator. But in reality, it can be sending this to a target system. -->
-	<int:service-activator
-		input-channel="common.claimcheck.out.outputChannel"
-		id="serviceActivator" ref="serviceActivatorBean" method="logXml" />
-
-	<bean id="serviceActivatorBean"
-		class="com.goSmarter.gemfire.claimcheckpattern.ServiceActivator">
-	</bean>
+	<import resource="classpath:claimcheck-in-integration-config.xml" />
+	<import resource="classpath:claimcheck-out-integration-config.xml" />
+	<import resource="classpath:subscriber-integration-config.xml" />
+	<import resource="classpath:jms-subscriber-config.xml" />
+	<import resource="classpath:gemfire-config.xml" />
+    <import resource="classpath:logger-mbean-config.xml" />   
 
 </beans>
