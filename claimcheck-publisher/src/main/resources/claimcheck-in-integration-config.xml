@@ -9,9 +9,14 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <context:property-placeholder/>
+	<context:property-placeholder/>
           
-    <import resource="classpath:claimcheck-message-store-config.xml"/>
+	<int:channel id="common.claimcheck.in.inputChannel" />
+	<int:channel id="common.claimcheck.in.requestChannel" />
+	<int:channel id="common.claimcheck.in.replyChannel" />
+	<int:channel id="common.claimcheck.in.outputChannel" />
+
+	<import resource="classpath:claimcheck-message-store-config.xml"/>
     
 	<int:service-activator id="common.claimcheckin.in.service" 
 	    input-channel="common.claimcheck.in.inputChannel"
@@ -25,22 +30,18 @@
         default-reply-timeout="${claimcheckReplyTimeout:10000}"/>
 
 	 
-	<int:channel id="common.claimcheck.in.inputChannel" />
-	<int:channel id="common.claimcheck.in.requestChannel" />
-	<int:channel id="common.claimcheck.in.replyChannel" />
-	<int:channel id="common.claimcheck.in.outputChannel" />
 
 	<int:chain id="common.claimcheck.in.chain" 
 	    input-channel="common.claimcheck.in.requestChannel"
         output-channel="common.claimcheck.in.replyChannel"> 
-        <int:claim-check-in message-store="common.cache.messageStore"/>
-    </int:chain>
+	        <int:claim-check-in message-store="common.cache.messageStore"/>
+	</int:chain>
 	
 	<int:service-activator id="common.claimcheck.in.error.handler" 
 		input-channel="errorChannel"
 		 method="handleError">
 		<bean id="common.claimcheck.in.errorHandler"
-			class="com.goSmarter.gemfire.claimcheckpattern.ClaimCheckErrorHandler">
+			class="com.goSmarter.gemfire.claimcheckpattern.ErrorHandler">
 			<constructor-arg ref="Customer" />
 		</bean>
 	</int:service-activator>

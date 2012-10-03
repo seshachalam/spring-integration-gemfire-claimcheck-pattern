@@ -8,7 +8,7 @@
     
    ]]></description>
     
-	<bean id="common.cache.messageStore" class="com.goSmarter.gemfire.claimcheckpattern.TransformingGemfireMessageStore">
-        <constructor-arg ref="Customer"/>
-    </bean>
+	<bean id="common.cache.messageStore" class="com.goSmarter.gemfire.claimcheckpattern.LocalGemfireMessageStore">
+		<constructor-arg ref="Customer"/>
+	</bean>
 </beans>
